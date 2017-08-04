@@ -145,7 +145,7 @@ foreach ($this->data('_EditorToolbar') as $button) {
          default:
             $html_toolbar .= wrap(
                wrap($html_arrow_down, 'span', $button['attr']).''.
-               wrap($html_button_dropdown_options, 'div', ['class' => 'editor-insert-dialog Flyout MenuItems', 'data-wysihtml5-dialog' => ''])
+               wrap($html_button_dropdown_options, 'div', ['class' => 'editor-insert-dialog Flyout MenuItems Flyout-Emoji', 'data-wysihtml5-dialog' => ''])
                , 'div', ['class' => 'editor-dropdown editor-dropdown-default editor-action-'.$button['action']]);
             break;
       }
