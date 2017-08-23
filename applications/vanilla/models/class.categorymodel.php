@@ -2291,6 +2291,7 @@ class CategoryModel extends Gdn_Model {
                 $cat['_PermissionCategoryID'] = $cat['PermissionCategoryID'];
                 $cat['_ParentCategoryID'] = $cat['ParentCategoryID'];
             } catch (Exception $ex) {
+                // Suppress exceptions from bubbling up.
             }
 
             if ($cat['CategoryID'] == -1) {
@@ -2329,6 +2330,11 @@ class CategoryModel extends Gdn_Model {
         }
         self::setCache();
         $this->collection->flushCache();
+
+        // Make sure the shared instance is reset.
+        if ($this !== self::instance()) {
+            self::instance()->collection->flushCache();
+        }
     }
 
     /**
